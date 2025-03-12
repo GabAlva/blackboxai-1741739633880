@@ -1,0 +1,146 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --pokemon-red: #FF0000;
+    --pokemon-blue: #3B4CCA;
+    --pokemon-yellow: #FFDE00;
+    --pokemon-gold: #DAA520;
+    --pokemon-black: #1A1A1A;
+  }
+
+  body {
+    @apply bg-pokemon-black text-white font-sans antialiased;
+  }
+}
+
+@layer components {
+  .pokemon-card {
+    @apply bg-gray-800 rounded-lg p-4 shadow-lg border-2 transition-all duration-300;
+  }
+
+  .pokemon-title {
+    @apply text-2xl font-bold text-pokemon-yellow mb-4;
+  }
+
+  .pokemon-subtitle {
+    @apply text-lg font-semibold text-gray-300;
+  }
+
+  .pokemon-button {
+    @apply px-6 py-2 rounded-full font-bold transition-all duration-300
+    disabled:opacity-50 disabled:cursor-not-allowed focus:outline-none focus:ring-2;
+  }
+
+  .pokemon-button-primary {
+    @apply pokemon-button bg-pokemon-red hover:bg-red-700 text-white
+    focus:ring-red-500 focus:ring-offset-2 focus:ring-offset-gray-800;
+  }
+
+  .pokemon-button-secondary {
+    @apply pokemon-button bg-pokemon-blue hover:bg-blue-700 text-white
+    focus:ring-blue-500 focus:ring-offset-2 focus:ring-offset-gray-800;
+  }
+
+  .pokemon-input {
+    @apply w-full px-4 py-2 bg-gray-700 border-2 border-gray-600 rounded-lg
+    text-white placeholder-gray-400 focus:outline-none focus:border-pokemon-yellow
+    transition-all duration-300;
+  }
+
+  .pokemon-stats {
+    @apply w-full;
+  }
+
+  .pokemon-stat-bar {
+    @apply w-full h-2 bg-gray-700 rounded-full overflow-hidden;
+  }
+
+  .pokemon-stat-fill {
+    @apply h-full transition-all duration-300;
+  }
+
+  .border-pokemon-red {
+    @apply border-pokemon-red;
+  }
+
+  .border-pokemon-yellow {
+    @apply border-pokemon-yellow;
+  }
+
+  .text-pokemon-red {
+    @apply text-pokemon-red;
+  }
+
+  .text-pokemon-yellow {
+    @apply text-pokemon-yellow;
+  }
+
+  .text-pokemon-gold {
+    @apply text-pokemon-gold;
+  }
+
+  .bg-pokemon-red {
+    @apply bg-pokemon-red;
+  }
+
+  .bg-pokemon-blue {
+    @apply bg-pokemon-blue;
+  }
+
+  .bg-pokemon-yellow {
+    @apply bg-pokemon-yellow;
+  }
+
+  .bg-pokemon-black {
+    @apply bg-pokemon-black;
+  }
+}
+
+/* Animações */
+@keyframes bounce {
+  0%, 100% {
+    transform: translateY(-25%);
+    animation-timing-function: cubic-bezier(0.8, 0, 1, 1);
+  }
+  50% {
+    transform: translateY(0);
+    animation-timing-function: cubic-bezier(0, 0, 0.2, 1);
+  }
+}
+
+.animate-bounce {
+  animation: bounce 1s infinite;
+}
+
+@keyframes pulse {
+  0%, 100% {
+    opacity: 1;
+  }
+  50% {
+    opacity: .5;
+  }
+}
+
+.animate-pulse {
+  animation: pulse 2s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+}
+
+/* Scrollbar personalizada */
+::-webkit-scrollbar {
+  width: 8px;
+}
+
+::-webkit-scrollbar-track {
+  @apply bg-gray-800;
+}
+
+::-webkit-scrollbar-thumb {
+  @apply bg-pokemon-red rounded-full;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  @apply bg-red-700;
+}
